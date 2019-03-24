@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Circle: Paint Worklet</title>
+  <style>
+    body {
+      padding: 0;
+      margin: 0
+    }
+
+    header {
+      position: relative;
+      background-image: paint(checker);
+      min-height: 40vh;
+    }
+
+    main {
+      text-align: center;
+      font-size: 1.2rem;
+      padding: 12rem 0 0 0;
+    }
+
+    .logo {
+      width: 250px;
+      position: absolute;
+      top: calc(40vh - 125px);
+      left: calc(50vw - 125px);
+    }
+
+    .sm {
+      padding: 2rem 0 0 0;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <img src="./logo.png" class="logo" />
+  </header>
+  <main>
+    Frontstack is a community with the aim to help more developers build skills in Frontend Engineering 💖
+
+    <div class="sm">
+      <img src="./sm.png" width="20%" />
+    </div>
+  </main>
+  <!-- add script -->
+  <script>
+    if ("paintWorklet" in CSS) {
+      CSS.paintWorklet.addModule("worklet.js");
+    } else {
+      document.body.innerHTML =
+        "You need support for CSS Paint API to view this demo :(";
+    }
+  </script>
+</body>
+
+</html>
